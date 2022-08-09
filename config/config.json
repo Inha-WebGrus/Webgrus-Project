@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "111111",
-    "database": "place",
+    "database": "webgrus",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

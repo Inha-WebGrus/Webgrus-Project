@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>시퀄라이즈 서버</title>
+    <style>
+      table { border: 1px solid black; border-collapse: collapse; }
+      table th, table td { border: 1px solid black; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form id="place-form">
+        <fieldset>
+          <legend>가게 등록</legend>
+          <div><input id="name" type="text" placeholder="가게명"></div>
+          <div><input id="adress" type="text" placeholder="주소"></div>
+          <button type="submit">등록</button>
+        </fieldset>
+      </form>
+    </div>
+    <br>
+    <div>
+      <form id="placeEdit-form">
+        <fieldset>
+          <legend>가게 수정</legend>
+          <div><input id="id" type="text" placeholder="ID"></div>
+          <div><input id="name" type="text" placeholder="가게명"></div>
+          <div><input id="adress" type="text" placeholder="주소"></div>
+          <button type="submit">수정</button>
+        </fieldset>
+      </form>
+    </div>
+    <br>
+    <div>
+      <form id="placeDelete-form">
+        <fieldset>
+          <legend>가게 삭제</legend>
+          <div><input id="id" type="text" placeholder="ID"></div>
+          <button type="submit">삭제</button>
+        </fieldset>
+      </form>
+    </div>
+    <br>
+    <table id="place-list">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>가게명</th>
+        <th>주소</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+        <!--<th>수정</th>
+        <th>삭제</th>--> 
+      </tr>
+      </thead>
+      <tbody>
+        {% for place in places %}
+        <tr>
+          <td>{{place.id}}</td>
+          <td>{{place.name}}</td>
+          <td>{{place.adress}}</td>
+          <td>{{place.created_at}}</td>
+          <td>{{place.updated_at}}</td>
+        <!-- <td><button ><a href="/placeEdit/{{place.id}}">수정하기</a></button></td>
+            
+          <form action="/placeAdmin/{{place.id}}?_method=DELETE" method="post">
+              <td><input type="submit" value="삭제하기"></input></td>--> 
+          </form>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/sequelize.js"></script>
+  </body>
+</html>

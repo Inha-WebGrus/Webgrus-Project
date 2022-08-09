@@ -6,7 +6,8 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 const indexRouter = require('./routes');
-const userRouter = require('./routes/user');
+const placesRouter = require('./routes/places');
+const placeAdminRouter = require('./routes/placeAdmin');
 
 const { sequelize } = require ('./models');
 const e = require("express");
@@ -14,10 +15,10 @@ const { allowedNodeEnvironmentFlags } = require("process");
 
 const app = express();
 app.set('port', process.env.PORT || 3000);
-app.set('veiw engine', 'html');
-nunjucks.configure('veiws', {
-  express: app,
-  watch: true,
+app.set('view engine', 'html');
+nunjucks.configure('views', {
+  autoescape: true,
+  express: app
 });
 sequelize.sync({ force: false })
   .then(() => {
@@ -32,9 +33,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
 app.use('/', indexRouter);
-app.use('/user', userRouter);
+app.use('/places', placesRouter);
+app.use('/placeAdmin', placeAdminRouter);
+
+
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
