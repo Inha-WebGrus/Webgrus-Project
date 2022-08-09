@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
+const authRouter = require('./routes/auth');
 
 const { sequelize } = require ('./models');
 const e = require("express");
@@ -19,6 +20,7 @@ nunjucks.configure('veiws', {
   express: app,
   watch: true,
 });
+
 sequelize.sync({ force: false })
   .then(() => {
     console.log('데이터베이스 연결 성공');
@@ -35,6 +37,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/', authRouter);
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
