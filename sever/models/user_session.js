@@ -1,26 +1,27 @@
 const Sequelize = require('sequelize')
 
-module.exports = class EmailVerification extends Sequelize.Model {
+module.exports = class UserSession extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
             id: {
                 type: Sequelize.BIGINT,
                 allowNull: false,
                 unique: true,
-                primaryKey: true
+                primaryKey: true,
+                autoIncrement: true
             },
-            email: {
+            key: {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
-            auth_code: {
-                type: Sequelize.STRING,
+            expire_at: {
+                type: Sequelize.DATE,
                 allowNull: false,
             },
             status: {
                 type: Sequelize.BOOLEAN,
                 allowNull: false,
-                defaultValue: 0
+                defaultValue: true
             },
             create_at: {
                 type: Sequelize.DATE,
@@ -35,11 +36,15 @@ module.exports = class EmailVerification extends Sequelize.Model {
             sequelize,
             timestamps: false,
             underscored: false,
-            modelName: 'EmailVerification',
-            tableName: 'email_verification',
+            modelName: 'UserSession',
+            tableName: 'user_session',
             paranoid: false,
             charset: 'utf8',
             collate: 'utf8_general_ci',
-        })
+        });
+    }
+
+    static associate(db) {
+        db.UserSession.belongsTo(db.User, { foreignKey: 'user_id', sourceKey: 'user_id'})
     }
 }

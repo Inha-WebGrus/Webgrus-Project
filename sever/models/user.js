@@ -18,6 +18,10 @@ module.exports = class User extends Sequelize.Model {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
+            salt: {
+                type: Sequelize.STRING,
+                allowNull: false,
+            },
             nickname: {
                 type: Sequelize.STRING,
                 allowNull: false,
@@ -25,6 +29,11 @@ module.exports = class User extends Sequelize.Model {
             last_login_at: {
                 type: Sequelize.DATE,
                 allowNull: true,
+            },
+            status: {
+                type: Sequelize.BOOLEAN,
+                allowNull: false,
+                defaultValue: false
             },
             create_at: {
                 type: Sequelize.DATE,
@@ -45,5 +54,9 @@ module.exports = class User extends Sequelize.Model {
             charset: 'utf8',
             collate: 'utf8_general_ci',
         })
+    }
+
+    static associate(db) {
+        db.User.hasMany(db.UserSession, {foreignKey: 'user_id', sourceKey: 'id'})
     }
 }
