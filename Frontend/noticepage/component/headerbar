@@ -1,0 +1,34 @@
+import { Box, Flex } from "@chakra-ui/react";
+import * as React from "react";
+import { ChevronLeftIcon } from "@chakra-ui/icons";
+import CircleIcon from "./icon";
+import { Text } from "@chakra-ui/react";
+import "../App.css";
+import { Icon } from "@iconify/react";
+
+function HeaderBar() {
+  return (
+    <Flex
+      w="100%"
+      h="60px"
+      paddingX="27px"
+      borderY="1px"
+      borderColor={"#C0C0C0"}
+      direction="row" /*flex 내부 가로 정렬 */
+      justifyContent="space-between" /*동일 여백 */
+      alignItems="center"
+    >
+      <Box as="button">
+        <Icon icon="ep:arrow-left-bold" h="41px" w="38px" />
+      </Box>
+      <Text fontSize="20px" fontWeight="bold" color="#1ABCFE">
+        리뷰
+      </Text>
+      <Box as="button">
+        <Icon icon="entypo:dots-three-horizontal" height="31" width="27" />
+      </Box>
+    </Flex>
+  );
+}
+
+export default HeaderBar;
