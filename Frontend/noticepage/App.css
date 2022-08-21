@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+@font-face {
+  font-family:Poppins-Regular ;
+  src: url(../public/font/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: PretendardVariable;
+  src: url(../public/font/PretendardVariable.ttf);
+}
+
+.tabBarColor div{
+  color: red;
+  opacity: 1;
+}
