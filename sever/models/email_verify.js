@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 
-module.exports = class EmailVerification extends Sequelize.Model {
+module.exports = class EmailVerify extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
             id: {
@@ -35,8 +35,8 @@ module.exports = class EmailVerification extends Sequelize.Model {
             sequelize,
             timestamps: false,
             underscored: false,
-            modelName: 'EmailVerification',
-            tableName: 'email_verification',
+            modelName: 'EmailVerify',
+            tableName: 'email_verify',
             paranoid: false,
             charset: 'utf8',
             collate: 'utf8_general_ci',

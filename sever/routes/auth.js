@@ -1,11 +1,12 @@
 const { check, validationResult } = require('express-validator');
 const { sequelize, UserSession } = require('../models');
+const nodemailer = require('nodemailer');
 
 const express = require('express');
 const User = require('../models/user');
-const EmailVerification = require('../models/email_verification');
 const { v4 } = require('uuid');
 var crypto = require('crypto');
+const EmailVerify = require('../models/email_verify');
 
 const router = express.Router();
 
@@ -57,15 +58,52 @@ router.post('/sign-in',
         }
     });
 
-router.put('/user/active',
-[
+    router.put('/user/active',
+        [
+            check('c', '유효하지 않은 인증 코드예요.').notEmpty(),
+        ],
+        async (req, res, next) => {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.status(400).json({ resultCode: 400, error: errors['errors'][0]['msg'] });
+            }
 
-],
-async (req, res, next) => {
+            let authCode = req.query['c'];
 
+            try {
+                let emailVerify = await EmailVerify.findOne({
+                    where: {
+                        auth_code: authCode
+                    }
+                });
 
+                if (emailVerify == null) {
+                    return res.status(400).json({ resultCode: 400, resultMessage: '유효하지 않은 인증 코드예요.' });
+                }
 
-});
+                if (!emailVerify.status) {
+                    return res.status(400).json({ resultCode: 400, resultMessage: '유효하지 않은 인증 코드예요.' });
+                }
+
+                let user = await getUserByEmail(email);
+
+                if (user.status) {
+                    return res.status(409).json({ resultCode: 409, resultMessage: '이미 인증이 완료 되었어요.' });
+                }
+
+                await User.update({
+                    status: true
+                },
+                {
+                    where: user.id
+                });
+
+                return res.status(200).json({ resultCode: 200, resultMessage: '성공'});
+            } catch (err) {
+                console.error(err);
+                next(err);
+            }
+    });
 
 router.post('/user',
     [
@@ -83,6 +121,12 @@ router.post('/user',
 
         let nickname = req.body['nickname'];
         let email = req.body['email'];
+        let emailDomain = email.split('@')[1];
+        
+        if (emailDomain != 'inha.edu' && emailDomain != 'inha.ac.kr') {
+            return res.status(400).json({ resultCode: 400, resultMessage: '인하대학교 이메일 주소로만 가입이 가능해요.' })
+        }
+
         let password = req.body['password'];
         let confirmPassword = req.body['confirmPassword'];
 
@@ -105,6 +149,39 @@ router.post('/user',
                 salt: salt,
                 status: false,
             });
+
+            let authCode = v4()
+
+            const emailVerify = await EmailVerify.create({
+                email: email,
+                auth_code: authCode,
+                status: true,
+            });
+
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                host: 'smtp.gmail.com',
+                port: 587,
+                secure: false,
+                auth: {
+                    user: 'inplace.2022@gmail.com',
+                    pass: 'upqfifcsuokxeeyy'
+                }
+            });
+
+            await transporter.sendMail({
+                // 보내는 곳의 이름과, 메일 주소를 입력
+                from: `'인플레이스' <'inplace.2022@gmail.com'>`,
+                // 받는 곳의 메일 주소를 입력
+                to: email,
+                // 보내는 메일의 제목을 입력
+                subject: '인플레이스 가입 인증 메일 이에요.',
+                // 보내는 메일의 내용을 입력
+                // text: 일반 text로 작성된 내용
+                // html: html로 작성된 내용
+                // text: '테스트',
+                html: `<b>가입을 완료 하시려면 아래 주소를 클릭해주세요.<br>${emailVerify.auth_code}</b>`,
+              });
 
             return res.json({ resultCode: 200, message: '성공' });
         } catch (err) {

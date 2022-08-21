@@ -12,6 +12,7 @@ const authRouter = require('./routes/auth');
 const { sequelize } = require ('./models');
 const e = require("express");
 const { allowedNodeEnvironmentFlags } = require("process");
+const { swaggerUi, specs } = require('./config/swagger');
 
 const app = express();
 app.set('port', process.env.PORT || 3000);
@@ -34,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/', authRouter);
