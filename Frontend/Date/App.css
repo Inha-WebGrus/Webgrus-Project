@@ -1,0 +1,21 @@
+@charset "utf-8";
+@font-face {
+  font-family: "pretendardVariable";
+  src: url("../public/fonts/PretendardVariable.ttf");
+}
+@font-face {
+  font-family: "poppinLight";
+  src: url("../public/fonts/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: Poppins-Medium;
+  src: url("../public/fonts/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: AppleSDGothicNeoM;
+  src: url("../public/fonts/AppleSDGothicNeoM.ttf");
+}
+.PAD{
+  padding: "0px";
+}
+
