@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url(../public/font/Montserrat-Bold.ttf);
+}
+@font-face {
+    font-family: Montserrat-SemiBold;
+    src: url(../public/font/Montserrat-SemiBold.ttf);
+}
+@font-face {
+    font-family:Montserrat-Thin ;
+    src: url(../public/font/Montserrat-Thin.ttf);
+}
+@font-face {
+    font-family:Montserrat-Regular ;
+    src: url(../public/font/Montserrat-Regular.ttf);
+}
+   
