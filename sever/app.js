@@ -8,6 +8,7 @@ dotenv.config();
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
 const authRouter = require('./routes/auth');
+const calendarRouter = require('./routes/calendar');
 
 const { sequelize } = require ('./models');
 const e = require("express");
@@ -38,7 +39,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/', indexRouter);
 app.use('/user', userRouter);
-app.use('/', authRouter);
+
+app.use('/', authRouter.router);
+app.use('/calendar', calendarRouter);
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);

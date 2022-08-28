@@ -7,7 +7,8 @@ module.exports = class EmailVerify extends Sequelize.Model {
                 type: Sequelize.BIGINT,
                 allowNull: false,
                 unique: true,
-                primaryKey: true
+                primaryKey: true,
+                autoIncrement: true
             },
             email: {
                 type: Sequelize.STRING,
