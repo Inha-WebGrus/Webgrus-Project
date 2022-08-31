@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>맛집 리스트</title>
+    <style>
+      table { border: 1px solid black; border-collapse: collapse; }
+      table th, table td { border: 1px solid black; }
+    </style>
+  </head>
+  <body>
+    <br>
+   
+        {% for place in places %}
+        <div>
+          <div style="border: 1px solid black;">
+          {{place.name}}
+          </div>
+        <button id="zzim" value="{{place.id}}">찜하기</button>
+        </div>
+        {% endfor %}
+   
+    <br>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/placeList.js"></script>
+  </body>
+</html>

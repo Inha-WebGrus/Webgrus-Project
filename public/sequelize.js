@@ -1,11 +1,4 @@
-document.querySelectorAll('#user-list tr').forEach((el) => {
-  el.addEventListener('click', function () {
-    const id = el.querySelector('td').textContent;
-    getComment(id);
-  });
-});
 
-  // 사용자 로딩
   async function getPlace() {
     try {
       const res = await axios.get('/places');

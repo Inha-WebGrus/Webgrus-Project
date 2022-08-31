@@ -40,5 +40,8 @@ module.exports = class Place extends Sequelize.Model {
             collate: 'utf8_general_ci',
         });
     }
-    static associations(db) {}
+    static associate(db) {
+        db.Place.hasMany(db.PlaceReview, {foreignKey: 'place_id', sourceKey: 'id'});
+        db.Place.hasMany(db.Userzzim, {foreignKey: 'place_id', sourceKey: 'id'});
+    }
 };

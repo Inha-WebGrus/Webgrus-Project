@@ -8,6 +8,9 @@ dotenv.config();
 const indexRouter = require('./routes');
 const placesRouter = require('./routes/places');
 const placeAdminRouter = require('./routes/placeAdmin');
+const authRouter = require('./routes/auth');
+const placeListRouter = require('./routes/placeList');
+
 
 const { sequelize } = require ('./models');
 const e = require("express");
@@ -29,13 +32,14 @@ sequelize.sync({ force: false })
   });
   
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'publ ic')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/places', placesRouter);
 app.use('/placeAdmin', placeAdminRouter);
+app.use('/placeList', placeListRouter);
 
 
 
