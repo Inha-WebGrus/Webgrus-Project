@@ -13,12 +13,13 @@ import java.time.LocalDateTime
 class TokenProvider {
 
     fun createToken(authentication: Authentication): String {
+        val user = authentication.principal as UserPrincipal
 
         val nowDateTime = LocalDateTime.now()
         val expireDateTime = nowDateTime.plusDays(30)
 
         return Jwts.builder()
-                .setSubject("")
+                .setSubject(user.id.toString())
                 .setIssuedAt(Timestamp.valueOf(nowDateTime))
                 .setExpiration(Timestamp.valueOf(expireDateTime))
                 .signWith(SignatureAlgorithm.HS512, "secretKey")
@@ -40,6 +41,10 @@ class TokenProvider {
         return Jwts.parser()
                 .setSigningKey("secretKey")
                 .parseClaimsJws(token)
+    }
+
+    fun getUserIdFromToken(token: String): Long {
+        return getClaims(token).body.subject.toLong()
     }
 
 }

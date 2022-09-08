@@ -21,6 +21,7 @@ import java.util.UUID
 
 @Service
 class AuthService(
+        private val mailService: MailService,
         private val userRepository: UserRepository,
         private val userVerifyRepository: UserVerifyRepository,
         private val tokenProvider: TokenProvider,
@@ -62,6 +63,9 @@ class AuthService(
                         authCode = UUID.randomUUID().toString()
                 )
         )
+
+        // TODO 개선 필요
+        mailService.sendMail(userVerify.email, "인플레이스 가입 인증 메일 이에요.", userVerify.authCode)
     }
 
     @Transactional
