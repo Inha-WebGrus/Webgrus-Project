@@ -1,0 +1,30 @@
+import React from "react";
+import { Button, ButtonGroup, Flex } from "@chakra-ui/react";
+
+const button = (
+  <Button
+    width="200px"
+    h={"38px"}
+    borderRadius={"99px"}
+    color={"#8AB9F6"}
+    bg="#ffffff"
+    boxShadow={"5px 5px 5px #8AB9F6"}
+  >
+    Button
+  </Button>
+);
+
+const LoginForm = (
+  <Flex
+    alignItems={"center"}
+    direction={"column"}
+    justifyContent="space-around"
+    h={"100%"}
+    padding={"40px 20px"}
+  >
+    {button}
+    {button}
+  </Flex>
+);
+
+export default LoginForm;

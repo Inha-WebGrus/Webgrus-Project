@@ -1,0 +1,72 @@
+@font-face {
+    font-family: PretendardVariable;
+    src: url(../public/font/PRETENDARDVARIABLE.TTF);
+  }
+  /*appleGothic*/
+  @font-face {
+    font-family: AppleSDGothicNeoB;
+    src: url(../public/font/APPLESDGOTHICNEOB.TTF);
+  }
+  @font-face {
+    font-family: AppleSDGothicNeoEB;
+    src: url(../public/font/APPLESDGOTHICNEOEB.TTF);
+  }
+  @font-face {
+    font-family: AppleSDGothicNeoSB;
+    src: url(../public/font/APPLESDGOTHICNEOSB.TTF);
+  }
+  @font-face {
+    font-family: AppleSDGothicNeoM;
+    src: url(../public/font/APPLESDGOTHICNEOM.TTF);
+  }
+  @font-face {
+    font-family: AppleSDGothicNeoR;
+    src: url(../public/font/APPLESDGOTHICNEOR.TTF);
+  }
+  @font-face {
+    font-family: AppleSDGothicNeoL;
+    src: url(../public/font/APPLESDGOTHICNEOL.TTF);
+  }
+  @font-face {
+    font-family: AppleSDGothicNeoUL;
+    src: url(../public/font/APPLESDGOTHICNEOUL.TTF);
+  }
+
+
+/*poppin*/
+  @font-face {
+    font-family: poppinLight;
+    src: url(../public/font/Poppins-Light.ttf);
+  }
+  @font-face {
+    font-family: Poppins-Medium;
+    src: url(../public/font/Poppins-Medium.ttf);
+  }
+  @font-face {
+    font-family:Poppins-Regular ;
+    src: url(../public/font/Poppins-Regular.ttf);
+  }
+
+
+/*Montserrat*/
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url(../public/font/Montserrat-Bold.ttf);
+}
+@font-face {
+  font-family: MontserratBold700;
+  src: url(../public/font/MontserratBold700.ttf);
+}
+@font-face {
+    font-family: Montserrat-SemiBold;
+    src: url(../public/font/Montserrat-SemiBold.ttf);
+}
+@font-face {
+    font-family:Montserrat-Thin ;
+    src: url(../public/font/Montserrat-Thin.ttf);
+}
+@font-face {
+    font-family:Montserrat-Regular ;
+    src: url(../public/font/Montserrat-Regular.ttf);
+}
+   

@@ -1,0 +1,72 @@
+/*Montserrat*/
+@font-face {
+  font-family: "Montserrat-SemiBold";
+  src: url(../../public/font/Montserrat-SemiBold.ttf);
+}
+
+.page {
+  width: 100vw;
+}
+
+.head {
+  display: flex;
+  background: linear-gradient(to right, #021B79, #4364F7, #6FB1FC);
+  height: 30vh;
+  border-bottom-left-radius: 22px;
+
+}
+
+.menu {
+  padding-top: 4vh;
+  margin-left: 6vw;
+}
+
+.name {
+	padding-top: 13vh;
+  text-align: left;
+  font-size: 40px;
+  color: white;
+  font-family: "Montserrat-SemiBold"
+}
+
+.category {
+  font-size: 24px;
+  padding-left: 6vw;
+  font-family: "pretendardVariable"
+}
+
+#diner {
+  padding-top: 2.5vh;
+}
+
+#schedule {
+  padding-top: 0vh;
+}
+
+.seeAll {
+  padding-left: 62vw;
+  padding-right: 6vw;
+  text-align: right;
+  display: inline-block;
+  font-size: 16px;
+  color: #4364F7;
+  font-family: "pretendardVariable"
+}
+
+.CardTitle {
+  font-size: 16px;
+  font-family: "pretendardVariable";
+}
+
+.CardText {
+  font-size: 15px;
+  color: gray;
+  font-family: "pretendardVariable";
+}
+
+.Card {
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  max-height: 300px;
+}
