@@ -1,14 +1,15 @@
 import { Flex, Text, Box } from '@chakra-ui/react';
 import { useState } from 'react';
+import { mainColor } from '../../variable';
 
 const noticeData = [
-  { date: '7.22~8.02', content: '프로젝트 디자인 작업' },
-  { date: '7.22~8.02', content: '프로젝트 디자인 작업' },
-  { date: '7.22~8.02', content: '프로젝트 디자인 작업' },
-  { date: '7.22~8.02', content: '프로젝트 디자인 작업' },
+  { date: '7.22~9.02', content: '프로젝트 디자인 작업1' },
+  { date: '9.22~10.02', content: '프로젝트 디자인 작업2' },
+  { date: '10.22~12.02', content: '프로젝트 디자인 작업3' },
+  { date: '11.22~01.02', content: '프로젝트 디자인 작업4' },
 ];
 
-const NoticeLI = () => {
+const DateList = () => {
   const [newNotice, setNoticeList] = useState(noticeData);
   return (
     <div>
@@ -20,7 +21,12 @@ const NoticeLI = () => {
               direction={'column'}
               justifyContent={'space-around'}
             >
-              <Text fontFamily={'Poppins-Medium'} fontSize={'16px'}>
+              <Text
+                fontFamily={'Poppins-Medium'}
+                fontSize={'16px'}
+                bgClip="text"
+                bgGradient={mainColor}
+              >
                 {item.date}
               </Text>
               <Text fontFamily={'AppleSDGothicNeoM'} fontSize={'16px'}>
@@ -34,4 +40,4 @@ const NoticeLI = () => {
   );
 };
 
-export default NoticeLI;
+export default DateList;

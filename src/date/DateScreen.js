@@ -2,18 +2,19 @@ import * as React from 'react';
 import { Box, ChakraProvider, Flex, Heading } from '@chakra-ui/react';
 import HeaderBar from '../components/HeaderBar';
 import styles from './DateScreen.module.css';
-import MonthsBar from './components/Months';
-import DateList from '../notice/component/NoticeList';
+import MonthsBar from './components/MonthsBar';
+
 import AddRequestForm from '../action/AddRequestForm';
+import DateList from './components/DateList';
 
 function DateScreen() {
   return (
     <ChakraProvider>
       <Box className={styles.boxOut}>
         <Box w="100%" h={'60px'}>
-          <HeaderBar title="일정" />
+          <HeaderBar title="2023" />
         </Box>
-        <Box bg="#f0f0f1" w="100%" h={'78px'}>
+        <Box bg="#E7EAEF" w="100%" h={'78px'}>
           <MonthsBar />
         </Box>
         <Box w="100%" h={'72px'}>

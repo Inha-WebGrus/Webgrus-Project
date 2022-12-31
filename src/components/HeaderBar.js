@@ -4,6 +4,7 @@ import { Text } from '@chakra-ui/react';
 import { Icon } from '@iconify/react';
 import styles from './HeaderBar.module.css';
 import MenuDrawerBtn from '../action/MenuDrawerBtn';
+import { headerColor } from '../variable';
 
 const HeaderBar = ({ title }) => {
   return (
@@ -11,7 +12,12 @@ const HeaderBar = ({ title }) => {
       <Box as="button">
         <MenuDrawerBtn />
       </Box>
-      <Text fontSize="20px" fontWeight="bold">
+      <Text
+        fontSize="20px"
+        textShadow="0px 2px #D6D6D6"
+        fontWeight="800"
+        color={headerColor}
+      >
         {title}
       </Text>
       <Box as="button">
@@ -20,6 +26,5 @@ const HeaderBar = ({ title }) => {
     </Flex>
   );
 };
-console.log(HeaderBar);
 
 export default HeaderBar;
