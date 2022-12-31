@@ -1,0 +1,11 @@
+.flexTitle {
+  width: 100%;
+  height: 60px;
+  padding-inline-start: 27px;
+  padding-inline-end: 27px;
+  border: 1px 0 1px 0;
+  border-color: '#C0C0C0';
+  direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

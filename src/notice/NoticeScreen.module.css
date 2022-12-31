@@ -1,0 +1,14 @@
+.boxOut {
+  min-width: 300px;
+  max-width: 600px;
+  min-height: 100vh;
+  border: 1px;
+  margin: auto;
+}
+
+.boxTap {
+  width: 100%;
+  height: 71px;
+  border-top: 1px solid black;
+  padding: 10px 0;
+}

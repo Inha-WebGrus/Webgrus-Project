@@ -1,0 +1,23 @@
+.flex {
+  color: #0f56b3;
+  opacity: 1;
+  align-items: center;
+  gap: 18px;
+  padding: 4px;
+  padding-right: 16px;
+  min-width: 300px;
+  max-width: 600px;
+  border-radius: 14px;
+  border: 1px solid black;
+  margin: auto 20px;
+  justify-content: space-around;
+  font-family: Poppins-Regular;
+  background: #c5dcfa;
+}
+.box {
+  border-radius: 12px;
+  background: blue;
+  color: white;
+  width: 44px;
+  height: 32px;
+}

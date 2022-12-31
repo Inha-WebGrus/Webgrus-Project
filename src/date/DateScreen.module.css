@@ -1,0 +1,14 @@
+.boxOut {
+  min-width: 300px;
+  max-width: 600px;
+  min-height: 100vh;
+  border: 1px;
+  margin: auto;
+}
+.flex {
+  direction: row;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  height: 100%;
+}
