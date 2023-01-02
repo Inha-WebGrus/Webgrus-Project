@@ -1,0 +1,16 @@
+.RequestBtn {
+  border-radius: 20px !important;
+  width: 150px;
+  height: 35px !important;
+  background-color: #0f5fa6 !important;
+  color: white;
+  text-align: center;
+  box-shadow: 0px 5px 20px #3299f4a5;
+  position: absolute;
+  top: 280px;
+  left: 340px;
+}
+.RequestBtn__text {
+  font-size: 17px;
+  font-weight: 600;
+}

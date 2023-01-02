@@ -13,7 +13,7 @@ const HeaderBar = ({ title }) => {
         <MenuDrawerBtn />
       </Box>
       <Text
-        fontSize="20px"
+        fontSize="24px"
         textShadow="0px 2px #D6D6D6"
         fontWeight="800"
         color={headerColor}

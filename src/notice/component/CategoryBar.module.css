@@ -12,11 +12,11 @@
   margin: auto 20px;
   justify-content: space-around;
   font-family: Poppins-Regular;
-  background: #c5dcfa;
+  background: linear-gradient(to right, white, #4364f7);
 }
 .box {
   border-radius: 12px;
-  background: blue;
+  background: #0f5fa6;
   color: white;
   width: 44px;
   height: 32px;

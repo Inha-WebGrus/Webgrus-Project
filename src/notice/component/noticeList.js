@@ -11,14 +11,19 @@ import { useEffect, useState } from 'react';
 import noticeListTest from '../test/NoticeListTest';
 
 const NoticeItem = ({ date, title, content, index }) => (
-  <AccordionItem bg={{ index } % 2 ? '#F9FCFE' : '#ffffff'}>
+  <AccordionItem
+    bg={{ index } % 2 ? '#F9FCFE' : '#ffffff'}
+    borderTop="0.05px solid #3299f4a5"
+  >
     <AccordionButton paddingLeft="0">
       <Box flex="1" textAlign="left">
         <Flex>
-          <Box textAlign={'center'} width={'80px'}>
+          <Box textAlign={'center'} width={'80px'} fontWeight="600">
             {date}
           </Box>
-          <Box flex={1}>{title}</Box>
+          <Box flex={1} fontWeight="400">
+            {title}
+          </Box>
         </Flex>
       </Box>
       <AccordionIcon />
