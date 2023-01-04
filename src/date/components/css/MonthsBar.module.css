@@ -32,6 +32,11 @@
   direction: row;
   justify-content: space-between;
   padding: 0 20px;
+  padding-left: 10px;
   align-items: center;
   height: 100%;
+}
+.monthBar__MonthTitle {
+  display: inline-block;
+  margin-right: 6px;
 }

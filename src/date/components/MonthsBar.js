@@ -1,4 +1,4 @@
-import { Box, Circle, Flex, Heading, VStack } from '@chakra-ui/react';
+import { Box, Circle, Flex, Heading, Text, VStack } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import AddRequestForm from '../../action/AddRequestForm';
@@ -29,11 +29,12 @@ const useMonthBar = () => {
     { en: afterMonthEn, num: afterMonthNum },
   ];
 
-  return { months, changeMonth, currentMonthNum };
+  return { months, changeMonth, currentMonthNum, currentMonthEn };
 };
 
 const MonthsBar = () => {
-  const { months, changeMonth, currentMonthNum } = useMonthBar();
+  const { months, changeMonth, currentMonthNum, currentMonthEn } =
+    useMonthBar();
 
   const monthList = months.map((item, index) => {
     let circleNum = <div>{item.num}</div>;
@@ -61,8 +62,12 @@ const MonthsBar = () => {
       <Box w="100%" h={'72px'}>
         <Flex className={styles.flex}>
           <Heading as="h1" fontSize={'26px'}>
-            {/* fontFamily={'poppinLight'}--> */}
-            August 8
+            <Text className={styles.monthBar__MonthTitle}>
+              {currentMonthEn}
+            </Text>
+            <Text className={styles.monthBar__MonthTitle}>
+              {currentMonthNum}
+            </Text>
           </Heading>
           <AddRequestForm />
         </Flex>
