@@ -70,7 +70,7 @@ const NoticeRequestForm = () => {
         <PopoverTrigger>
           <IconButton
             className={styles.RequestBtn}
-            icon={<Box className={styles.RequestBtn__text}>일정 추가 요청</Box>}
+            icon={<Box className={styles.RequestBtn__text}>공지 추가 요청</Box>}
           />
         </PopoverTrigger>
         <PopoverContent p={5}>

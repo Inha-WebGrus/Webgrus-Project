@@ -1,6 +1,7 @@
 import { Flex, Text, Box } from '@chakra-ui/react';
 import { useState } from 'react';
 import { mainColor } from '../../variable';
+import monthContents from '../test/monthContents';
 
 const noticeData = [
   { date: '7.22~9.02', content: '프로젝트 디자인 작업1' },
@@ -9,11 +10,12 @@ const noticeData = [
   { date: '11.22~01.02', content: '프로젝트 디자인 작업4' },
 ];
 
-const DateList = () => {
-  const [newNotice, setNoticeList] = useState(noticeData);
+const DateList = ({ currentMonthNum }) => {
+  const currentMonthContent = monthContents[currentMonthNum - 1];
+
   return (
     <div>
-      {newNotice.map(item => {
+      {currentMonthContent.map(item => {
         return (
           <Box h={'83px'} borderBottom={'1px solid gray'} padding={'10px'}>
             <Flex
