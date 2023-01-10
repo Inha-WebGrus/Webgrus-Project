@@ -1,10 +1,10 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
-import MenuDrawerBtn from '../action/MenuDrawerBtn';
+import MenuDrawerBtn from './action/MenuDrawer';
 import { SettingsIcon } from '@chakra-ui/icons';
 
 const HeaderBar = ({ title }) => {
   return (
-    <Flex layerStyle="flexRow" h="60px" px="27px">
+    <Flex layerStyle="flexRowBetween" h="60px" px="27px">
       <Box as="button">
         <MenuDrawerBtn />
       </Box>

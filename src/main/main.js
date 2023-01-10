@@ -6,7 +6,7 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { Link } from '@chakra-ui/react';
 import SimpleSlider from './SimpleSlider.js';
 import { Link as RouterLink } from 'react-router-dom';
-import MenuDrawerBtn from '../action/MenuDrawerBtn';
+import MenuDrawerBtn from '../components/action/MenuDrawer';
 
 function main() {
   return (

@@ -1,5 +1,5 @@
+import { AddIcon } from '@chakra-ui/icons';
 import {
-  Box,
   Button,
   ButtonGroup,
   FormControl,
@@ -14,11 +14,11 @@ import {
   Stack,
   useDisclosure,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useRef } from 'react';
+import { forwardRef } from 'react';
 import ReactFocusLock from 'react-focus-lock';
-import styles from './css/DateRequestForm.module.css';
 
-const TextInput = React.forwardRef((props, ref) => {
+const TextInput = forwardRef((props, ref) => {
   return (
     <FormControl>
       <FormLabel htmlFor={props.id}>{props.label}</FormLabel>
@@ -27,16 +27,10 @@ const TextInput = React.forwardRef((props, ref) => {
   );
 });
 
-// 2. Create the form
-const Form = ({ firstFieldRef, onCancel }) => {
+const Form = ({ element, onCancel }) => {
   return (
     <Stack spacing={2}>
-      <TextInput
-        label="Date"
-        id="first-name"
-        ref={firstFieldRef}
-        color="black"
-      />
+      <TextInput label="Date" id="first-name" ref={element} color="black" />
       <TextInput label="Content" id="last-name" color="black" />
       <ButtonGroup display="flex" justifyContent="flex-end">
         <Button variant="outline" onClick={onCancel}>
@@ -52,16 +46,15 @@ const Form = ({ firstFieldRef, onCancel }) => {
 
 // 3. Create the Popover
 // Ensure you set `closeOnBlur` prop to false so it doesn't close on outside click
-
 const DateRequestForm = () => {
   const { onOpen, onClose, isOpen } = useDisclosure();
-  const firstFieldRef = React.useRef(null);
+  const element = useRef(null);
 
   return (
     <>
       <Popover
         isOpen={isOpen}
-        initialFocusRef={firstFieldRef}
+        initialFocusRef={element}
         onOpen={onOpen}
         onClose={onClose}
         placement="left"
@@ -69,15 +62,17 @@ const DateRequestForm = () => {
       >
         <PopoverTrigger>
           <IconButton
-            className={styles.RequestBtn}
-            icon={<Box className={styles.RequestBtn__text}>일정 추가 요청</Box>}
+            size="sm"
+            icon={<AddIcon />}
+            color="gray.600"
+            bg="gray.100"
           />
         </PopoverTrigger>
         <PopoverContent p={5}>
           <ReactFocusLock returnFocus persistentFocus={false}>
             <PopoverArrow />
             <PopoverCloseButton />
-            <Form firstFieldRef={firstFieldRef} onCancel={onClose} />
+            <Form element={element} onCancel={onClose} />
           </ReactFocusLock>
         </PopoverContent>
       </Popover>

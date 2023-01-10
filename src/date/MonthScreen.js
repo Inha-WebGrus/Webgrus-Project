@@ -1,9 +1,6 @@
-import { Box, Circle, Flex, Heading, Text, VStack } from '@chakra-ui/react';
+import { Box, Circle, Flex, Text, VStack } from '@chakra-ui/react';
 import { useState } from 'react';
-import { useEffect } from 'react';
-import AddRequestForm from '../../action/AddRequestForm';
-import styles from '../components/css/MonthsBar.module.css';
-import DateList from './DateList';
+import ListScreen from './ListScreen';
 import DateRequestForm from './DateRequestForm';
 
 const useMonthBar = () => {
@@ -13,13 +10,9 @@ const useMonthBar = () => {
   const changeMonth = item => {
     setCurrentMonthNum(item);
   };
-
   let beforeMonthNum = currentMonthNum - 1;
   let afterMonthNum = currentMonthNum + 1;
-
-  if (beforeMonthNum === 0) {
-    beforeMonthNum = 12;
-  }
+  if (beforeMonthNum === 0) beforeMonthNum = 12;
   if (afterMonthNum === 13) afterMonthNum = 1;
   let beforeMonthEn = month(beforeMonthNum);
   let afterMonthEn = month(afterMonthNum);
@@ -28,53 +21,65 @@ const useMonthBar = () => {
     { en: currentMonthEn, num: currentMonthNum },
     { en: afterMonthEn, num: afterMonthNum },
   ];
-
   return { months, changeMonth, currentMonthNum, currentMonthEn };
 };
 
-const MonthsBar = () => {
+const MonthScreen = () => {
   const { months, changeMonth, currentMonthNum, currentMonthEn } =
     useMonthBar();
-
   const monthList = months.map((item, index) => {
     let circleNum = <div>{item.num}</div>;
     if (index === 1) {
       circleNum = (
         <VStack>
-          <Circle className={styles.textCircle}>{item.num}</Circle>
+          <Circle w="30px" bg="#2B6CB0" p="auto" color="white">
+            {item.num}
+          </Circle>
         </VStack>
       );
     }
     return (
       <Flex
         onClick={() => changeMonth(item.num)}
-        className={styles.monthBar__item}
+        w="100%"
+        direction="column"
+        justify="space-around"
       >
         <div>{item.en}</div>
-
         {circleNum}
       </Flex>
     );
   });
   return (
     <>
-      <Flex className={styles.monthBar}>{monthList}</Flex>
-      <Box w="100%" h={'72px'}>
-        <Flex className={styles.flex}>
-          <Heading as="h1" fontSize={'26px'}>
-            <Text className={styles.monthBar__MonthTitle}>
-              {currentMonthEn}
-            </Text>
-            <Text className={styles.monthBar__MonthTitle}>
-              {currentMonthNum}
-            </Text>
-          </Heading>
-          <AddRequestForm />
-        </Flex>
+      <Flex
+        h="78px"
+        w="100%"
+        py="5px"
+        fontSize="20px"
+        fontWeight="600"
+        color="gray.800"
+        bg="#e7eaef"
+        borderY="1px solid #E2E8F0"
+        justify="space-around"
+        textAlign="center"
+        pos="relative"
+      >
+        {monthList}
+      </Flex>
+      <Box p="12px">
+        <Box h="72px" color="gray.800">
+          <Flex layerStyle="flexRowBetween" ml="10px" pr="20px" h="100%">
+            <Flex fontSize="32px" fontWeight="600">
+              <Text mr="8px">{currentMonthEn}</Text>
+              <Text>{currentMonthNum}</Text>
+            </Flex>
+            <DateRequestForm />
+          </Flex>
+        </Box>
+        <ListScreen currentMonthNum={currentMonthNum} />
       </Box>
-      <DateList currentMonthNum={currentMonthNum} />
-      <DateRequestForm />
     </>
   );
 };
-export default MonthsBar;
+export default MonthScreen;

@@ -13,8 +13,8 @@ import noticeListTest from '../test/NoticeListTest';
 const NoticeItem = ({ date, title, content, index }) => {
   return (
     <AccordionItem
-      bg={`${index}` % 2 ? '#F9FCFE' : '#e7eaef'}
-      borderTop="0.05px solid #3299f4a5"
+      bg={`${index}` % 2 ? '#FFFFFF' : '#EDF2F7'}
+      borderTop="0.5px solid #E2E8F0"
     >
       <AccordionButton paddingLeft="0">
         <Box flex="1" textAlign="left">
