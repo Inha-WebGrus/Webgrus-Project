@@ -15,6 +15,7 @@ function DateScreen() {
         <HeaderBar title="2023" />
         <MonthsBar />
       </Box>
+      <Box>24</Box>
     </ChakraProvider>
   );
 }

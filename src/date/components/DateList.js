@@ -1,6 +1,5 @@
 import { Flex, Text, Box } from '@chakra-ui/react';
 import { useState } from 'react';
-import { mainColor } from '../../variable';
 import monthContents from '../test/monthContents';
 
 const noticeData = [
@@ -27,7 +26,6 @@ const DateList = ({ currentMonthNum }) => {
                 fontFamily={'Poppins-Medium'}
                 fontSize={'16px'}
                 bgClip="text"
-                bgGradient={mainColor}
               >
                 {item.date}
               </Text>

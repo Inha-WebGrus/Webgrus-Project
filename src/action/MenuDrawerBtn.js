@@ -8,7 +8,6 @@ import 'https://kit.fontawesome.com/9596d68cb2.js';
 import {
   Box,
   Button,
-  ChakraProvider,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -16,50 +15,56 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Flex,
-  HStack,
-  Spacer,
+  RangeSliderThumb,
   Stack,
   Text,
   useDisclosure,
-  VStack,
 } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { mainColor } from '../variable';
+import styles from './MenuDrawerBtn.module.css';
 
-const MenuDrawerBtn = ({ color }) => {
+const MenuDrawer = ({ color = 'black' }) => {
+  const [size, setSize] = React.useState('');
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  if (color === null) {
-    color = 'black';
-  }
+
+  const handleClick = newSize => {
+    setSize(newSize);
+    onOpen();
+  };
 
   return (
     <div>
-      <HamburgerIcon color={color} ref={btnRef} onClick={onOpen} boxSize={6} />
-
+      <HamburgerIcon
+        color={color}
+        ref={btnRef}
+        onClick={() => handleClick('xs')}
+        boxSize={7}
+      />
       <Drawer
         isOpen={isOpen}
         placement="left"
         onClose={onClose}
         finalFocusRef={btnRef}
+        size={size}
       >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent className={styles.DrawerContent}>
           <DrawerHeader
-            borderBottomWidth="1px"
+            borderBottomWidth="10px"
             display="flex"
             flexDirection="row"
             justifyContent="space-between"
             alignItems="center"
           >
-            <Box bgGradient={mainColor} bgClip="text">
+            <Box bgGradient="pink" bgClip="text">
               <Text
                 display="inline"
                 fontSize="28px"
                 fontWeight="700"
                 marginRight="20px"
+                color="black"
               >
                 IN PLACE
               </Text>
@@ -113,7 +118,7 @@ const MenuDrawerBtn = ({ color }) => {
                   width="100%"
                   variant="outline"
                   onClick={onClose}
-                  bgGradient={mainColor}
+                  bgGradient="pink"
                 >
                   로그인
                 </Button>
@@ -123,7 +128,7 @@ const MenuDrawerBtn = ({ color }) => {
                   color="white"
                   borderRadius="20px"
                   width="100%"
-                  bgGradient={mainColor}
+                  bgGradient="pink"
                 >
                   회원가입
                 </Button>
@@ -135,4 +140,4 @@ const MenuDrawerBtn = ({ color }) => {
     </div>
   );
 };
-export default MenuDrawerBtn;
+export default MenuDrawer;

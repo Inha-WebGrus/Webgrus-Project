@@ -22,10 +22,11 @@ import Register_2 from './login/register_2';
 import Register_complete from './login/register_complete';
 import DateScreen from './date/DateScreen';
 import NoticeScreen from './notice/NoticeScreen';
+import theme from './theme';
 
 export default function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
