@@ -8,6 +8,7 @@ import {
   Input 
 } from '@chakra-ui/react';
 import '../../font.css'
+import Star from '../../star.js';
 
 function ReviewInput()  {   
     /* */
@@ -27,6 +28,7 @@ function ReviewInput()  {
             fontSize={"16px"} color="#0F5FA6"
             >입력</Text>
         </Flex>
+        <Star/>
 
         </ChakraProvider>
       );
