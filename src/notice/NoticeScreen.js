@@ -1,33 +1,74 @@
 import * as React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import {
+  ChakraProvider,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+} from '@chakra-ui/react';
 import { Box } from '@chakra-ui/react';
 
-import styles from './NoticeScreen.module.css';
 import HeaderBar from '../components/HeaderBar';
-import CategoryBar from './component/CategoryBar';
-import NoticeList from './component/NoticeList';
-import NoticeRequestForm from './component/NoticeRequestForm';
+
+import NoticeList from './NoticeList';
+import NoticeRequestForm from './NoticeRequestForm';
 
 function NoticeScreen() {
   return (
     <ChakraProvider>
-      <Box className={styles.boxOut}>
-        <Box w="100%" h={'60px'}>
-          <HeaderBar title="공지" />
-        </Box>
-        <Box className={styles.boxTap}>
-          <CategoryBar />
-        </Box>
-        <Box height="40px" fontWeight="600">
-          <Box display="inline-block" marginLeft="24px">
-            날짜
-          </Box>
-          <Box display="inline-block" marginLeft="24px">
-            공지사항
-          </Box>
-        </Box>
-        <NoticeList />
-        <NoticeRequestForm />
+      <Box>
+        <HeaderBar title="공지" />
+        <Tabs
+          m="12px"
+          mt="14px"
+          px="12px"
+          variant="soft-rounded"
+          colorScheme="blue"
+        >
+          <TabList
+            h="40px"
+            borderRadius="20px"
+            bg="gray.100"
+            boxShadow="base"
+            border="1px solid #BEE3F8"
+            pos="relative"
+          >
+            <Tab>Official</Tab>
+            <Tab>InPlace</Tab>
+            <Box pos="absolute" right="12px" top="2px">
+              <NoticeRequestForm />
+            </Box>
+          </TabList>
+          <TabPanels>
+            <TabPanel px="0">
+              <Box
+                h="40px"
+                fontSize="15px"
+                fontWeight="600"
+                ml="24px"
+                color="gray.700"
+              >
+                <Box display="inline-block">날짜</Box>
+                <Box display="inline-block" ml="41px">
+                  공지사항
+                </Box>
+              </Box>
+              <NoticeList />
+            </TabPanel>
+            <TabPanel>
+              <Box height="40px" fontWeight="600">
+                <Box display="inline-block" marginLeft="24px">
+                  날짜
+                </Box>
+                <Box display="inline-block" marginLeft="24px">
+                  공지사항
+                </Box>
+                <NoticeList />
+              </Box>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </Box>
     </ChakraProvider>
   );

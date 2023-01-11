@@ -11,14 +11,15 @@ const ListScreen = ({ currentMonthNum }) => {
           <Box h="84px" borderBottom="1px solid #CBD5E0" p="10px">
             <Flex direction="column" justify="space-around">
               <Text
-                fontSize="20px"
+                fontSize="18px"
                 textStyle="fontColorMain"
+                color="#4364F7"
                 fontWeight="600"
-                mb="6px"
+                mb="10px"
               >
                 {item.date}
               </Text>
-              <Text fontSize="18px" fontWeight="600">
+              <Text fontSize="16px" fontWeight="600" color="gray.800">
                 {item.content}
               </Text>
             </Flex>

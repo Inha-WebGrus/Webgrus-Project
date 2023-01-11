@@ -8,35 +8,29 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import noticeListTest from '../test/NoticeListTest';
+import noticeListTest from './test/NoticeListTest';
 
 const NoticeItem = ({ date, title, content, index }) => {
   return (
     <AccordionItem
-      bg={`${index}` % 2 ? '#FFFFFF' : '#EDF2F7'}
-      borderTop="0.5px solid #E2E8F0"
+      bg={`${index}` % 2 ? '#FFFFFF' : 'gray.100'}
+      borderTop="1px solid gray.100"
     >
-      <AccordionButton paddingLeft="0">
-        <Box flex="1" textAlign="left">
-          <Flex>
-            <Box textAlign={'center'} width={'80px'} fontWeight="600">
-              {date}
-            </Box>
-            <Box flex={1} fontWeight="400">
-              {title}
-            </Box>
-          </Flex>
-        </Box>
-        <AccordionIcon />
+      <AccordionButton px="0" layerStyle="flexRowBetween">
+        <Flex textStyle="flexRowBetween">
+          <Box width={'80px'} fontWeight="600">
+            {date}
+          </Box>
+          <Box flex={1} pl="5px">
+            {title}
+          </Box>
+        </Flex>
+
+        <AccordionIcon color="gray.500" />
       </AccordionButton>
-      <AccordionPanel
-        paddingLeft={'0'}
-        paddingRight={'40px'}
-        pb={4}
-        fontWeight="medium"
-      >
+      <AccordionPanel pl="0" pr="40px" py="8px" fontWeight="200">
         <Flex>
-          <Box width={'80px'}></Box>
+          <Box w={'80px'}></Box>
           <Box flex={1}>{content}</Box>
         </Flex>
       </AccordionPanel>

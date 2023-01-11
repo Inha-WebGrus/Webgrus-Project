@@ -6,13 +6,13 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { Link } from '@chakra-ui/react';
 import SimpleSlider from './SimpleSlider.js';
 import { Link as RouterLink } from 'react-router-dom';
-import MenuDrawerBtn from '../components/action/MenuDrawer';
+import MenuDrawer from '../components/MenuDrawer';
 
 function main() {
   return (
     <ChakraProvider className="page">
       <div className="head">
-        <MenuDrawerBtn color="white" />
+        <MenuDrawer color="white" />
 
         <Link as={RouterLink} to="/notice">
           <div className="name">InPlace</div>
@@ -42,7 +42,7 @@ function main() {
         </div>
         <div className="category" id="schedule">
           공지
-          <div className="seeAll" id="ss">
+          <div className="seeAll" id="ss"></div>
             {' '}
             <Link color="#4364F7" href="#">
               모두보기

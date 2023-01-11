@@ -11,10 +11,10 @@ const theme = extendTheme({
   },
   textStyles: {
     headerTitle: {
-      fontSize: '26px',
+      fontSize: '28px',
       fontWeight: '800',
-      color: '#2B6CB0',
-      textShadow: '0px 2px #D6D6D6',
+      bgClip: 'text',
+      bgGradient: 'linear(to-r, #021B79, #4364F7, #6FB1FC)',
       fontFamily: 'Poppins-Medium',
     },
     fontColorMain: {
@@ -26,7 +26,7 @@ const theme = extendTheme({
     },
   },
 });
-
+//p 12px
 //#2B6CB0 navy-color
 // #F7FAFC light-gray
 // #E2E8F0 border light-gray
