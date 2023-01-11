@@ -56,16 +56,20 @@ function NoticeScreen() {
               </Box>
               <NoticeList />
             </TabPanel>
-            <TabPanel>
-              <Box height="40px" fontWeight="600">
-                <Box display="inline-block" marginLeft="24px">
-                  날짜
-                </Box>
-                <Box display="inline-block" marginLeft="24px">
+            <TabPanel px="0">
+              <Box
+                h="40px"
+                fontSize="15px"
+                fontWeight="600"
+                ml="24px"
+                color="gray.700"
+              >
+                <Box display="inline-block">날짜</Box>
+                <Box display="inline-block" ml="41px">
                   공지사항
                 </Box>
-                <NoticeList />
               </Box>
+              <NoticeList />
             </TabPanel>
           </TabPanels>
         </Tabs>
