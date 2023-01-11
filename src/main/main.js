@@ -42,7 +42,7 @@ function main() {
         </div>
         <div className="category" id="schedule">
           공지
-          <div className="seeAll" id="ss"></div>
+          <div className="seeAll" id="ss">
             {' '}
             <Link color="#4364F7" href="#">
               모두보기
