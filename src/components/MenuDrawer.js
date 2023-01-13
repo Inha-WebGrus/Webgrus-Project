@@ -38,7 +38,7 @@ const MenuDrawer = ({ color = 'black' }) => {
 
   const InfoScreen = () => {
     return (
-      <Box>
+      <Box w="100%" m="12px">
         {isInfo === false ? (
           <Stack w="100%" color="white">
             <Link to="/login">
@@ -53,27 +53,38 @@ const MenuDrawer = ({ color = 'black' }) => {
             </Link>
           </Stack>
         ) : (
-          <Card maxW="sm">
-            <CardBody>
-              <Img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEwMjdfMTQg%2FMDAxNjY2ODQwNDIxMDY2.tQqXDjbzCfx-ZQPVEM3vPdVfFS6vn9NnHSLt09iZwvQg.ZXKnoL6w7rPx63TVDqbFfU4yIrFDrxHthx88zm5DPKog.JPEG.aramnurimaru%2F20221024%25A3%25DF102003.jpg&type=a340"></Img>
-              <Stack mt="6" spacing="3">
-                <Text>개인정보</Text>
-                <Text>내가쓴글</Text>
-                <Text color="blue.600" fontSize="2xl">
-                  슈퍼~
-                </Text>
+          <Card py="12px" px="18px">
+            <CardBody p="12px">
+              <Flex>
+                <Img
+                  h="120px"
+                  src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEwMjdfMTQg%2FMDAxNjY2ODQwNDIxMDY2.tQqXDjbzCfx-ZQPVEM3vPdVfFS6vn9NnHSLt09iZwvQg.ZXKnoL6w7rPx63TVDqbFfU4yIrFDrxHthx88zm5DPKog.JPEG.aramnurimaru%2F20221024%25A3%25DF102003.jpg&type=a340"
+                />
+                <Flex direction="column" justify="space-around" mx="auto">
+                  <Text>포포 / 이승주</Text>
+                  <Text>학번: 18학번</Text>
+                  <Text>Gold</Text>
+                </Flex>
+              </Flex>
+              <Stack mt="1" spacing="1">
+                <Button h="34px" colorScheme="blue">
+                  내가 쓴 글
+                </Button>
+                <Button h="34px" colorScheme="blue">
+                  스크랩
+                </Button>
               </Stack>
             </CardBody>
             <Divider />
-            <CardFooter>
-              <ButtonGroup spacing="2">
-                <Button variant="solid" colorScheme="blue">
-                  Buy now
-                </Button>
-                <Button variant="ghost" colorScheme="blue">
-                  Add to cart
-                </Button>
-              </ButtonGroup>
+            <CardFooter p="5px">
+              <Flex w="100%" spacing="5px">
+                <Box as="button" w="50%">
+                  회원정보
+                </Box>
+                <Box as="button" w="50%">
+                  <Link to="/Setting">설정</Link>
+                </Box>
+              </Flex>
             </CardFooter>
           </Card>
         )}
@@ -174,18 +185,12 @@ const MenuDrawer = ({ color = 'black' }) => {
                   Food
                 </Text>
               </Flex>
+              <Box as="button" border="2px solid black" onClick={changeInfo}>
+                Click
+              </Box>
             </Stack>
-            <Box
-              as="button"
-              border="2px solid black"
-              p="5px"
-              mt="400px"
-              onClick={changeInfo}
-            >
-              Click
-            </Box>
           </DrawerBody>
-          <DrawerFooter>
+          <DrawerFooter p="0">
             <InfoScreen />
           </DrawerFooter>
         </DrawerContent>

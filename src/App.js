@@ -24,6 +24,7 @@ import DateScreen from './date/DateScreen';
 import NoticeScreen from './notice/NoticeScreen';
 import theme from './theme';
 import MainScreen from './main/MainScreen';
+import Setting from './userMenu/Setting';
 
 export default function App() {
   console.log(theme);
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/register_1" element={<Register_1 />} />
           <Route path="/register_2" element={<Register_2 />} />
           <Route path="/register_complete" element={<Register_complete />} />
+          <Route path="/setting" element={<Setting />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

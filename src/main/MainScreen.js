@@ -6,6 +6,7 @@ const MainScreen = () => {
   return (
     <Box>
       <MainTopCover />
+
       <MainCategory />
     </Box>
   );

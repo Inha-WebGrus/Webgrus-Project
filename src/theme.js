@@ -2,6 +2,10 @@ import { extendTheme } from '@chakra-ui/react';
 import './index.css';
 
 const theme = extendTheme({
+  config: {
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+  },
   colors: {
     bb: 'red',
   },
