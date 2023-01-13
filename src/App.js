@@ -8,7 +8,7 @@ import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 
 //import시 첫 글자:대문자로
-import Main from './main/main';
+
 import Menubar from './menubar/menubar';
 
 import Food_intro from './food/food_intro';
@@ -23,6 +23,7 @@ import Register_complete from './login/register_complete';
 import DateScreen from './date/DateScreen';
 import NoticeScreen from './notice/NoticeScreen';
 import theme from './theme';
+import MainScreen from './main/MainScreen';
 
 export default function App() {
   console.log(theme);
@@ -30,7 +31,7 @@ export default function App() {
     <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<MainScreen />} />
           <Route path="/menubar" element={<Menubar />} />
           <Route path="/food_intro" element={<Food_intro />} />
           <Route path="/food_list" element={<Food_list />} />
