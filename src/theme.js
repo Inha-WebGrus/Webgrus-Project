@@ -19,7 +19,6 @@ const theme = extendTheme({
     },
   },
 });
-ml;
 //p 12px
 //#2B6CB0 navy-color
 // #F7FAFC light-gray

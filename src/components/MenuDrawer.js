@@ -8,6 +8,10 @@ import {
 import {
   Box,
   Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Divider,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -15,12 +19,14 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
+  Img,
   Stack,
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { React, useState, useRef } from 'react';
+import { ButtonGroup } from 'react-bootstrap';
 
 const MenuDrawer = ({ color = 'black' }) => {
   const [size, setSize] = useState('');
@@ -28,12 +34,59 @@ const MenuDrawer = ({ color = 'black' }) => {
   const btnRef = useRef();
   const navigate = useNavigate();
   const currentURL = useLocation().pathname;
+  const [isInfo, setInfo] = useState(false);
 
+  const InfoScreen = () => {
+    return (
+      <Box>
+        {isInfo === false ? (
+          <Stack w="100%" color="white">
+            <Link to="/login">
+              <Button textStyle="bgColorMain" w="100%" borderRadius="60px">
+                로그인
+              </Button>
+            </Link>
+            <Link to="/register_1">
+              <Button textStyle="bgColorMain" w="100%" borderRadius="60px">
+                회원가입
+              </Button>
+            </Link>
+          </Stack>
+        ) : (
+          <Card maxW="sm">
+            <CardBody>
+              <Img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEwMjdfMTQg%2FMDAxNjY2ODQwNDIxMDY2.tQqXDjbzCfx-ZQPVEM3vPdVfFS6vn9NnHSLt09iZwvQg.ZXKnoL6w7rPx63TVDqbFfU4yIrFDrxHthx88zm5DPKog.JPEG.aramnurimaru%2F20221024%25A3%25DF102003.jpg&type=a340"></Img>
+              <Stack mt="6" spacing="3">
+                <Text>개인정보</Text>
+                <Text>내가쓴글</Text>
+                <Text color="blue.600" fontSize="2xl">
+                  슈퍼~
+                </Text>
+              </Stack>
+            </CardBody>
+            <Divider />
+            <CardFooter>
+              <ButtonGroup spacing="2">
+                <Button variant="solid" colorScheme="blue">
+                  Buy now
+                </Button>
+                <Button variant="ghost" colorScheme="blue">
+                  Add to cart
+                </Button>
+              </ButtonGroup>
+            </CardFooter>
+          </Card>
+        )}
+      </Box>
+    );
+  };
   const handleClick = newSize => {
     setSize(newSize);
     onOpen();
   };
-
+  const changeInfo = () => {
+    setInfo(!isInfo);
+  };
   const moveLink = url => {
     if (url === currentURL) onClose();
     else navigate(url);
@@ -122,24 +175,23 @@ const MenuDrawer = ({ color = 'black' }) => {
                 </Text>
               </Flex>
             </Stack>
+            <Box
+              as="button"
+              border="2px solid black"
+              p="5px"
+              mt="400px"
+              onClick={changeInfo}
+            >
+              Click
+            </Box>
           </DrawerBody>
           <DrawerFooter>
-            <Stack w="100%" color="white">
-              <Link to="/login">
-                <Button textStyle="bgColorMain" w="100%" borderRadius="60px">
-                  로그인
-                </Button>
-              </Link>
-              <Link to="/register_1">
-                <Button textStyle="bgColorMain" w="100%" borderRadius="60px">
-                  회원가입
-                </Button>
-              </Link>
-            </Stack>
+            <InfoScreen />
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </div>
   );
 };
+
 export default MenuDrawer;
