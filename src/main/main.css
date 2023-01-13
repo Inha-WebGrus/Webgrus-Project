@@ -1,20 +1,16 @@
 @font-face {
   font-family: 'Pretendard-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+    format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
-.page {
-  width: 100vw;
-}
-
 .head {
   display: flex;
-  background: linear-gradient(to right, #021B79, #4364F7, #6FB1FC);
+  background: linear-gradient(to right, #021b79, #4364f7, #6fb1fc);
   height: 30vh;
   border-bottom-left-radius: 22px;
-
 }
 
 .menu {
@@ -23,17 +19,17 @@
 }
 
 .name {
-	padding-top: 13vh;
+  padding-top: 13vh;
   text-align: left;
   font-size: 40px;
   color: white;
-  font-family: "Montserrat-SemiBold"
+  font-family: 'Montserrat-SemiBold';
 }
 
 .category {
   font-size: 24px;
   padding-left: 6vw;
-  font-family: "pretendardVariable"
+  font-family: 'pretendardVariable';
 }
 
 #diner {
@@ -50,19 +46,19 @@
   text-align: right;
   display: inline-block;
   font-size: 16px;
-  color: #4364F7;
-  font-family: "pretendardVariable"
+  color: #4364f7;
+  font-family: 'pretendardVariable';
 }
 
 .CardTitle {
   font-size: 16px;
-  font-family: "pretendardVariable";
+  font-family: 'pretendardVariable';
 }
 
 .CardText {
   font-size: 15px;
   color: gray;
-  font-family: "pretendardVariable";
+  font-family: 'pretendardVariable';
 }
 
 .Card {

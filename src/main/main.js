@@ -13,10 +13,6 @@ function main() {
     <ChakraProvider className="page">
       <div className="head">
         <MenuDrawer color="white" />
-
-        <Link as={RouterLink} to="/notice">
-          <div className="name">InPlace</div>
-        </Link>
       </div>
 
       <div>
