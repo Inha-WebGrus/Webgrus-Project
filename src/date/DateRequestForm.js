@@ -44,8 +44,6 @@ const Form = ({ element, onCancel }) => {
   );
 };
 
-// 3. Create the Popover
-// Ensure you set `closeOnBlur` prop to false so it doesn't close on outside click
 const DateRequestForm = () => {
   const { onOpen, onClose, isOpen } = useDisclosure();
   const element = useRef(null);

@@ -25,6 +25,7 @@ import NoticeScreen from './notice/NoticeScreen';
 import theme from './theme';
 
 export default function App() {
+  console.log(theme);
   return (
     <ChakraProvider theme={theme}>
       <BrowserRouter>

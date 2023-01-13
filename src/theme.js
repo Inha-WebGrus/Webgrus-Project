@@ -2,6 +2,10 @@ import { extendTheme } from '@chakra-ui/react';
 import './index.css';
 
 const theme = extendTheme({
+  colors: {
+    bb: 'red',
+  },
+
   layerStyles: {
     flexRowBetween: {
       direction: 'row',
@@ -10,17 +14,6 @@ const theme = extendTheme({
     },
   },
   textStyles: {
-    headerTitle: {
-      fontSize: '28px',
-      fontWeight: '800',
-      bgClip: 'text',
-      bgGradient: 'linear(to-r, #021B79, #4364F7, #6FB1FC)',
-      fontFamily: 'Poppins-Medium',
-    },
-    fontColorMain: {
-      bgClip: 'text',
-      bgGradient: 'linear(to-r, #021B79, #4364F7, #6FB1FC)',
-    },
     bgColorMain: {
       bgGradient: 'linear(to-r, #021B79, #4364F7, #6FB1FC)',
     },

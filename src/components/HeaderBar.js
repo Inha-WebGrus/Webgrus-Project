@@ -13,7 +13,14 @@ const HeaderBar = ({ title }) => {
       <Box as="button">
         <MenuDrawer />
       </Box>
-      <Text textStyle="headerTitle">{title}</Text>
+      <Text
+        bgClip="text"
+        textStyle="bgColorMain"
+        fontSize="28px"
+        fontWeight="700"
+      >
+        {title}
+      </Text>
       <Box as="button">
         <SettingsIcon boxSize={5} opacity="0.8" />
       </Box>
