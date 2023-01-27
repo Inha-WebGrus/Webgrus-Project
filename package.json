@@ -2,6 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080/",
   "dependencies": {
     "@chakra-ui/icons": "^2.0.12",
     "@chakra-ui/react": "^2.2.6",
