@@ -10,7 +10,7 @@ const [message, setMessage] = useState("");
 useEffect( () => {
    
       // fetch(url,options) : HTTP 요청 함수
-      fetch("/swagger-ui/index.html#/")
+      fetch("/swagger-ui/index.html")
       .then((response) => response.text())
       .then((message) => {
       setMessage(message);
